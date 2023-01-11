@@ -1,5 +1,5 @@
-import Bookmark from "../Bookmark"
-import Qualitie from "../Qualitie"
+import Bookmark from "../../common/Bookmark"
+import Qualitie from "../../ui/Qualitie"
 import Rating from "../Rating"
 
 function UserCard({ user, ...props }) {
@@ -22,8 +22,10 @@ function UserCard({ user, ...props }) {
           <div className="p-3 text-sm text-gray-700 whitespace-nowrap">
             {user.profession.name}
           </div>
-        </div>
-
+        </div>          <div className="flex content-start">Profession</div>
+          <div className="p-3 text-sm text-gray-700 whitespace-nowrap">
+            {user.profession.name}
+          </div>
         <div className="flex flex-wrap">
           <div className="flex content-start">Met once</div>
           <div className="p-3 text-sm">{user.completedMeetings}</div>

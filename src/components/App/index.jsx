@@ -1,13 +1,13 @@
 /* eslint-disable */
 import { Route, Routes } from "react-router-dom"
-import Posts from "./../Posts/index"
-import Post from "./../Post/index"
-import Layout from "../../Layout"
-import Main from "../../Layout/Main"
-import Login from "../../Layout/Login"
-import UsersList from "../../Layout/Users"
-import Registration from '../../Layout/Registration';
-import User from '../../Layout/User';
+import Posts from "./../common/Posts"
+import Post from "./../common/Post"
+import Layout from "../../Pages"
+import Main from "../../Pages/Main"
+import Login from "../../Pages/Login"
+import UsersList from "../../Pages/Users"
+import Registration from '../../Pages/Registration';
+import User from '../../Pages/User';
 
 const App = () => {
   return (

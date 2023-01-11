@@ -2,8 +2,8 @@
 import { useParams, useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react"
 import API from "../API"
-import Qualitie from '../components/Qualitie';
-import Rating from '../components/Rating';
+import Qualitie from '../components/ui/Qualitie';
+import Rating from '../components/ui/Rating';
 
 const User = () => {
   const { slug } = useParams()

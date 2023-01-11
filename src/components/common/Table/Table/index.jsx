@@ -1,6 +1,6 @@
 /* eslint-disable */
-import TableHeader from "./../TableHeader/index"
-import TableBody from "./../TableBody/index"
+import TableHeader from "../TableHeader/index"
+import TableBody from "../TableBody/index"
 
 const Table = ({ onSort, selectedSort, columns, users, children }) => {
   return (

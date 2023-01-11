@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 
-import TextField from "./../TextField/index"
-import { validator, validarConfig } from "../../Utils/validator"
+import TextField from "../../common/Form/TextField/index"
+import { validator, validarConfig } from "../../../Utils/validator"
 
 const LoginForm = () => {
   const [inputData, setInputData] = useState({
@@ -30,7 +30,6 @@ const LoginForm = () => {
     e.preventDefault()
     const isValidate = validate()
     if (!isValidate) return
-    console.log(inputData)
   }
   const isValidate = Object.keys(errors).length === 0
 

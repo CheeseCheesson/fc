@@ -1,10 +1,10 @@
 /* eslint-disable */
-import Bookmark from "../Bookmark"
+import Bookmark from "../../common/Bookmark"
 import Qualitie from "../Qualitie"
-import Table from "../Table"
-import TableBody from "../TableBody"
-import TableHeader from "../TableHeader"
-import CustomLink from './../Custom/CustomLink';
+import Table from "../../common/Table/Table"
+import TableBody from "../../common/Table/TableBody"
+import TableHeader from "../../common/Table/TableHeader"
+import CustomLink from '../../Custom/CustomLink';
 
 function UserTable({
   users,

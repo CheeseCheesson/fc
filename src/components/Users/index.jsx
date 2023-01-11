@@ -1,15 +1,15 @@
 /* eslint-disable */
 import { useState, useEffect } from "react"
 import _ from "lodash"
-import GroupList from "../GroupList"
-import Pagination from "../Pagination"
-import SearchStatus from "../SearchStatus"
-import UserCard from "../UserCard/Index"
+import GroupList from "../common/GroupList"
+import Pagination from "../common/Pagination"
+import SearchStatus from "../ui/SearchStatus"
+import UserCard from "../ui/UserCard"
 import API from "../../API"
 import { paginate } from "../../Utils/paginate"
-import UserTable from "../UserTable"
+import UserTable from "../ui/UserTable"
 import styles from "./Users.module.scss"
-import SearchInput from "../SearchInput"
+import SearchInput from "../ui/SearchInput"
 
 function Users() {
   const [users, setUsers] = useState()

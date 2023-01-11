@@ -1,6 +1,5 @@
 /* eslint-disable */
 import _ from "lodash"
-import CustomLink from './../Custom/CustomLink';
 
 function TableBody({ data, columns }) {
   const renderData = (item, colmn) => {

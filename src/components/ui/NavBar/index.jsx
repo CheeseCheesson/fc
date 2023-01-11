@@ -1,5 +1,5 @@
 /* eslint-disable */
-import CustomLink from './../Custom/CustomLink';
+import CustomLink from '../../Custom/CustomLink';
 
 const NavBar = () => {
 
