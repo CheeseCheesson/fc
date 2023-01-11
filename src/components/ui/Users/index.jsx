@@ -1,15 +1,15 @@
 /* eslint-disable */
 import { useState, useEffect } from "react"
 import _ from "lodash"
-import GroupList from "../common/GroupList"
-import Pagination from "../common/Pagination"
-import SearchStatus from "../ui/SearchStatus"
-import UserCard from "../ui/UserCard"
-import API from "../../API"
-import { paginate } from "../../Utils/paginate"
-import UserTable from "../ui/UserTable"
+import GroupList from "../../common/GroupList"
+import Pagination from "../../common/Pagination"
+import SearchStatus from "../SearchStatus"
+import UserCard from "../UserCard"
+import API from "../../../API"
+import { paginate } from "../../../Utils/paginate"
+import UserTable from "../UserTable"
 import styles from "./Users.module.scss"
-import SearchInput from "../ui/SearchInput"
+import SearchInput from "../../common/SearchInput"
 
 function Users() {
   const [users, setUsers] = useState()
@@ -59,10 +59,10 @@ function Users() {
     setCurrentPage(1)
   }, [selectedProf])
   // choose profession item
-  const handleProfessionSelect = (params) => {   
+  const handleProfessionSelect = (params) => {
     if (searchValue) {
       setSearchValue("")
-      console.log('searchValue',searchValue);
+      console.log("searchValue", searchValue)
     }
     setSelectedProf(params)
   }
@@ -77,7 +77,10 @@ function Users() {
   }
   if (users) {
     const filtredUsers = searchValue
-      ? users.filter(user =>  user.name.toLowerCase().indexOf(searchValue.toLowerCase()) !== -1)
+      ? users.filter(
+          (user) =>
+            user.name.toLowerCase().indexOf(searchValue.toLowerCase()) !== -1
+        )
       : selectedProf && selectedProf["_id"]
       ? users.filter((user) => {
           return (
