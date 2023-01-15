@@ -5,6 +5,9 @@ const RadioField = ({
   value,
   label = "Choose your sex..."
 }) => {
+  const handleChange = ({ target }) => {
+    fn({ name: target.name, value: target.value })
+  }
   return (
     <>
       <label className="block text-gray-700 text-sm font-bold mb-2">
@@ -21,7 +24,7 @@ const RadioField = ({
                 type="radio"
                 name={name}
                 value={sex.value}
-                onChange={fn}
+                onChange={handleChange}
                 checked={sex.value === value}
                 className="form-radio h-5 w-5 text-gray-600"
               />

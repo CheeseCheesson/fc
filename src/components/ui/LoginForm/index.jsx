@@ -1,12 +1,15 @@
+/* eslint-disable */
 import { useState, useEffect } from "react"
 
 import TextField from "../../common/Form/TextField/index"
 import { validator, validarConfig } from "../../../Utils/validator"
+import CheckboxField from "../../common/Form/CheckboxField"
 
 const LoginForm = () => {
   const [inputData, setInputData] = useState({
     email: "",
-    password: ""
+    password: "",
+    stayOn: false
   })
   const [errors, setErrors] = useState({})
 
@@ -23,7 +26,7 @@ const LoginForm = () => {
     }
   }, [inputData])
 
-  const handleChange = ({ target }) => {
+  const handleChange = (target) => {
     setInputData((prev) => ({ ...prev, [target.name]: target.value }))
   }
   const handleSubmit = (e) => {
@@ -63,6 +66,13 @@ const LoginForm = () => {
       >
         Sign In
       </button>
+      <CheckboxField
+        name="stayOn"
+        fn={handleChange}
+        value={inputData.stayOn}
+      >
+        Stay on this device
+      </CheckboxField>
     </form>
   )
 }

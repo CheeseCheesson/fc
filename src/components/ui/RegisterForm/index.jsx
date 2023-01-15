@@ -5,15 +5,20 @@ import { validator, validarConfig } from "../../../Utils/validator"
 import API from "./../../../API/index"
 import SelectField from "../../common/Form/SelectField"
 import RadioField from "../../common/Form/RadioField"
+import MultiSelect from "../../common/Form/MultiSelectField/index"
+import CheckboxField from "../../common/Form/CheckboxField"
 
 const RegisterForm = () => {
   const [inputData, setInputData] = useState({
     email: "",
     password: "",
     professions: "",
-    sex: "other"
+    sex: "other",
+    qualities: [],
+    licence: false
   })
   const [profession, setprofession] = useState([])
+  const [qualities, setQualities] = useState({})
   const [errors, setErrors] = useState({})
 
   const validate = () => {
@@ -24,6 +29,7 @@ const RegisterForm = () => {
 
   useEffect(() => {
     API.professions.fetchAll().then((data) => setprofession(data))
+    API.qualities.fetchAll().then((data) => setQualities(data))
   }, [])
 
   useEffect(() => {
@@ -33,7 +39,7 @@ const RegisterForm = () => {
     }
   }, [inputData])
 
-  const handleChange = ({ target }) => {
+  const handleChange = (target) => {
     setInputData((prev) => ({ ...prev, [target.name]: target.value }))
   }
   const handleSubmit = (e) => {
@@ -71,6 +77,8 @@ const RegisterForm = () => {
           error={errors.professions}
         />
       </div>
+      <div className="mb-4"></div>
+      <MultiSelect options={qualities} fn={handleChange} name="qualities" />
       <RadioField
         value={inputData.sex}
         options={[
@@ -92,6 +100,16 @@ const RegisterForm = () => {
       >
         Sign Up
       </button>
+      <div className="my-4">
+        <CheckboxField
+          name="licence"
+          fn={handleChange}
+          value={inputData.licence}
+          error={errors.licence}
+        >
+          I agree to the processing of my personal information
+        </CheckboxField>
+      </div>
     </form>
   )
 }

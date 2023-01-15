@@ -3,6 +3,11 @@ import { useState } from "react"
 const TextField = (props) => {
   const { label, type, name, value, placeholder, fn, error } = props
   const [showPassword, setShowPassword] = useState(false)
+
+  const handleChange = ({ target }) => {
+    fn({ name: target.name, value: target.value })
+  }
+
   const handleClick = () => {
     setShowPassword((prev) => !prev)
   }
@@ -26,7 +31,7 @@ const TextField = (props) => {
         type={checkType(type)}
         name={name}
         value={value}
-        onChange={fn}
+        onChange={handleChange}
         placeholder={placeholder}
         className="form-input w-full py-2 px-3 text-gray-700 leading-tight rounded-lg bg-gray-200 focus:outline-none focus:bg-white"
       />

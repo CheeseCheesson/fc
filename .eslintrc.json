@@ -49,6 +49,8 @@
     "react/jsx-closing-tag-location": "off",
     "array-callback-return": "off",
     "function-paren-newline": "off",
-    "react/jsx-indent": "off"
+    "react/jsx-indent": "off",
+    "prefer-arrow-callback": "off",
+    "no-else-return": "off"
   }
 }

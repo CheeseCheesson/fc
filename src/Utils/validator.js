@@ -1,14 +1,23 @@
+/* eslint-disable */
 export function validator(data, config) {
   const errors = {}
   function validate(validateMethod, dataField, configField) {
     switch (validateMethod) {
       case "isRequired":
-        if (dataField.trim() === "") {
-          return configField.message
+        {
+          if (typeof dataField === "boolean") {
+            if (!dataField) {
+              return configField.message
+            }
+          } else if (dataField.trim() === "") {
+            return configField.message
+          }
         }
+
         break
       case "isEmail":
-        const re = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*\.\S+$/
+        const re =
+          /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*\.\S+$/
         if (!re.test(String(dataField).toLowerCase())) {
           return configField.message
         }
@@ -79,6 +88,11 @@ export const validarConfig = {
   professions: {
     isRequired: {
       message: "Profession is required"
+    }
+  },
+  licence: {
+    isRequired: {
+      message: "Licence is required"
     }
   }
 }
