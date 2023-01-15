@@ -75,5 +75,10 @@ export const validarConfig = {
       message: "Password must be at least 8 characters long",
       value: 8
     }
+  },
+  professions: {
+    isRequired: {
+      message: "Profession is required"
+    }
   }
 }

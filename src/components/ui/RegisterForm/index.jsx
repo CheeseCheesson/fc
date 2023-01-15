@@ -2,12 +2,18 @@ import { useState, useEffect } from "react"
 
 import TextField from "../../common/Form/TextField/index"
 import { validator, validarConfig } from "../../../Utils/validator"
+import API from "./../../../API/index"
+import SelectField from "../../common/Form/SelectField"
+import RadioField from "../../common/Form/RadioField"
 
-const LoginForm = () => {
+const RegisterForm = () => {
   const [inputData, setInputData] = useState({
     email: "",
-    password: ""
+    password: "",
+    professions: "",
+    sex: "other"
   })
+  const [profession, setprofession] = useState([])
   const [errors, setErrors] = useState({})
 
   const validate = () => {
@@ -15,6 +21,10 @@ const LoginForm = () => {
     setErrors(inputErrors)
     return Object.keys(inputErrors).length === 0
   }
+
+  useEffect(() => {
+    API.professions.fetchAll().then((data) => setprofession(data))
+  }, [])
 
   useEffect(() => {
     validate()
@@ -53,6 +63,25 @@ const LoginForm = () => {
         fn={handleChange}
         error={errors.password}
       />
+      <div className="relative mb-4">
+        <SelectField
+          data={profession}
+          fn={handleChange}
+          name={"professions"}
+          error={errors.professions}
+        />
+      </div>
+      <RadioField
+        value={inputData.sex}
+        options={[
+          { name: "Male", value: "male" },
+          { name: "Female", value: "female" },
+          { name: "Other", value: "other" }
+        ]}
+        fn={handleChange}
+        label="Choose you sex"
+        name="sex"
+      />
       <button
         className={
           "text-white py-2 px-4 rounded-md w-full " +
@@ -61,10 +90,10 @@ const LoginForm = () => {
         type="submit"
         disabled={!isValidate}
       >
-        Sign In
+        Sign Up
       </button>
     </form>
   )
 }
 
-export default LoginForm
+export default RegisterForm
