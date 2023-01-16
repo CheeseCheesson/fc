@@ -1,7 +1,6 @@
-import { noConflict } from "lodash"
 import Select from "react-select"
 
-function MultiSelectField({ options, name, fn }) {
+function MultiSelectField({ options, name, fn, defaultValue }) {
   const optionsArray = !Array.isArray(options)
     ? Object.keys(options).map((key) => ({
         label: options[key].name,
@@ -24,6 +23,7 @@ function MultiSelectField({ options, name, fn }) {
         classNamePrefix="select"
         onChange={handleChange}
         name={name}
+        defaultValue={defaultValue}
       />
     </label>
   )

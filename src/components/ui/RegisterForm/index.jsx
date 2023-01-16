@@ -75,6 +75,7 @@ const RegisterForm = () => {
           fn={handleChange}
           name={"professions"}
           error={errors.professions}
+          defaultValue={inputData.qualities}
         />
       </div>
       <div className="mb-4"></div>
